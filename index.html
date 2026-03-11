@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vila do Progresso — Protótipo</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="top-bar">
+        <h1>Vila do Progresso</h1>
+        <p>Missão: Reformar o clube de tecnologia</p>
+      </header>
+
+      <section class="scene-panel" id="scene-panel">
+        <h2 id="scene-title"></h2>
+        <p id="scene-description"></p>
+        <div id="scene-dialogue" class="dialogue-box"></div>
+      </section>
+
+      <section class="bank-app" aria-label="Aplicativo de Banco">
+        <h3>📱 App da Mesada</h3>
+        <div class="bank-grid">
+          <article>
+            <span>Saldo Atual</span>
+            <strong id="saldo">R$ 0,00</strong>
+          </article>
+          <article>
+            <span>Receitas</span>
+            <strong id="receitas">R$ 0,00</strong>
+          </article>
+          <article>
+            <span>Despesas</span>
+            <strong id="despesas">R$ 0,00</strong>
+          </article>
+          <article>
+            <span>Meta Clube</span>
+            <strong id="meta">R$ 0,00 / R$ 1.200,00</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="mission-panel">
+        <h3 id="mission-title"></h3>
+        <p id="mission-goal"></p>
+        <ul id="mission-steps"></ul>
+      </section>
+
+      <section class="interaction-panel">
+        <h3>Desafio de Consumo</h3>
+        <p id="challenge-question"></p>
+        <div id="challenge-options" class="option-list"></div>
+        <p id="challenge-feedback" class="feedback"></p>
+      </section>
+
+      <section class="quick-puzzle">
+        <h3>Separador de Despesas</h3>
+        <p>Arraste os itens para <strong>Necessidade</strong> ou <strong>Desejo</strong>.</p>
+        <div class="drag-items" id="drag-items"></div>
+        <div class="dropzones">
+          <div class="dropzone" data-type="necessidade">
+            Necessidade
+            <ul id="necessidade-list"></ul>
+          </div>
+          <div class="dropzone" data-type="desejo">
+            Desejo
+            <ul id="desejo-list"></ul>
+          </div>
+        </div>
+        <p id="drag-feedback" class="feedback"></p>
+      </section>
+
+      <footer class="action-bar">
+        <button id="next-dialogue">Próximo diálogo</button>
+        <button id="complete-week">Fechar orçamento da semana</button>
+      </footer>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
