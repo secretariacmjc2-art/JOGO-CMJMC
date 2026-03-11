@@ -1,0 +1,221 @@
+:root {
+  --bg: #0b1026;
+  --panel: #16203a;
+  --panel-soft: #1f2f57;
+  --accent: #55f2d2;
+  --accent-2: #ffd166;
+  --text: #f4f7ff;
+  --ok: #70f8a5;
+  --error: #ff8f8f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top left, #1d4ed8 0%, var(--bg) 40%, #050814 100%);
+}
+
+.layout {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-areas:
+    'world phone'
+    'activities activities';
+  gap: 1rem;
+}
+
+.panel {
+  background: linear-gradient(145deg, rgba(26, 42, 77, 0.92), rgba(17, 27, 49, 0.95));
+  border: 1px solid #33508d;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  padding: 1rem;
+}
+
+.world-panel {
+  grid-area: world;
+}
+
+.phone {
+  grid-area: phone;
+}
+
+.activities {
+  grid-area: activities;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.panel-header h1 {
+  margin: 0;
+  color: var(--accent);
+}
+
+.scene-card,
+.quests-card,
+.activity-card,
+.balance-card,
+.budget-setup {
+  background: var(--panel-soft);
+  border-radius: 12px;
+  padding: 0.9rem;
+  margin-top: 0.8rem;
+}
+
+.dialogue {
+  border-left: 4px solid var(--accent-2);
+  background: rgba(5, 8, 20, 0.5);
+  padding: 0.7rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.phone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tiny {
+  margin: 0;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.chip {
+  background: rgba(85, 242, 210, 0.2);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.balance-card strong {
+  font-size: 1.6rem;
+}
+
+.bank-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.bank-grid article {
+  background: rgba(5, 8, 20, 0.45);
+  border-radius: 10px;
+  padding: 0.6rem;
+}
+
+.bank-grid span {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+label {
+  font-size: 0.85rem;
+}
+
+input {
+  width: 100%;
+  margin-top: 0.2rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #4f6dad;
+  background: #0f1730;
+  color: var(--text);
+}
+
+.btn {
+  background: var(--accent);
+  border: none;
+  color: #042727;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+  margin-top: 0.6rem;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: var(--accent-2);
+  color: #4a2f00;
+}
+
+.options,
+.drag-items,
+.dropzones,
+.market-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-option,
+.btn-chip {
+  margin-top: 0;
+}
+
+.dropzone {
+  flex: 1;
+  min-width: 180px;
+  border: 2px dashed #8ea8df;
+  border-radius: 10px;
+  padding: 0.7rem;
+  background: rgba(5, 8, 20, 0.45);
+}
+
+.market-block {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(5, 8, 20, 0.45);
+  border-radius: 10px;
+  padding: 0.6rem;
+}
+
+.feedback {
+  min-height: 1.2rem;
+  font-weight: 600;
+}
+
+.feedback.ok {
+  color: var(--ok);
+}
+
+.feedback.error {
+  color: var(--error);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'world'
+      'phone'
+      'activities';
+  }
+
+  .activities,
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vila do Progresso — RPG Financeiro</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="world-panel panel">
+        <header class="panel-header">
+          <h1>🏙️ Vila do Progresso</h1>
+          <p id="phase-tag">Semana 1 • Quarto do Jogador</p>
+        </header>
+
+        <article class="scene-card">
+          <h2 id="scene-title"></h2>
+          <p id="scene-description"></p>
+          <div class="dialogue" id="scene-dialogue"></div>
+          <button id="next-dialogue" class="btn btn-secondary">Próxima fala</button>
+        </article>
+
+        <article class="quests-card">
+          <h3>📜 Quests</h3>
+          <p><strong id="mission-title"></strong></p>
+          <p id="mission-goal"></p>
+          <ul id="mission-steps"></ul>
+          <button id="complete-week" class="btn">Concluir semana</button>
+        </article>
+      </section>
+
+      <section class="phone panel" aria-label="Aplicativo de Banco">
+        <header class="phone-header">
+          <div>
+            <p class="tiny">App da Mesada</p>
+            <h3>📱 Banco Jovem</h3>
+          </div>
+          <span class="chip" id="long-term-status">Meta em progresso</span>
+        </header>
+
+        <div class="balance-card">
+          <p>Saldo disponível</p>
+          <strong id="saldo">R$ 0,00</strong>
+        </div>
+
+        <div class="bank-grid">
+          <article><span>Receitas</span><strong id="receitas">R$ 0,00</strong></article>
+          <article><span>Despesas</span><strong id="despesas">R$ 0,00</strong></article>
+          <article><span>Reserva</span><strong id="reserva">R$ 0,00</strong></article>
+          <article><span>Meta Clube</span><strong id="meta">R$ 0,00 / R$ 0,00</strong></article>
+        </div>
+
+        <article class="budget-setup">
+          <h4>🧮 Monte seu orçamento da semana</h4>
+          <div class="input-grid">
+            <label>Transporte (necessidade)
+              <input type="number" id="input-transporte" min="0" value="40" />
+            </label>
+            <label>Lanche escolar (necessidade)
+              <input type="number" id="input-lanche" min="0" value="35" />
+            </label>
+            <label>Lazer (desejo)
+              <input type="number" id="input-lazer" min="0" value="20" />
+            </label>
+            <label>Meta clube (longo prazo)
+              <input type="number" id="input-meta" min="0" value="80" />
+            </label>
+          </div>
+          <button id="apply-budget" class="btn">Aplicar orçamento</button>
+          <p class="feedback" id="budget-feedback"></p>
+        </article>
+      </section>
+
+      <section class="activities panel">
+        <article class="activity-card">
+          <h3>⚔️ Batalha de Conhecimento: Crédito Fácil</h3>
+          <p id="challenge-question"></p>
+          <div id="challenge-options" class="options"></div>
+          <p id="challenge-feedback" class="feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>🧲 Separador de Despesas</h3>
+          <p>Arraste cada item para <strong>Necessidade</strong> ou <strong>Desejo</strong>.</p>
+          <div class="drag-items" id="drag-items"></div>
+          <div class="dropzones">
+            <div class="dropzone" data-type="necessidade">
+              Necessidade
+              <ul></ul>
+            </div>
+            <div class="dropzone" data-type="desejo">
+              Desejo
+              <ul></ul>
+            </div>
+          </div>
+          <p id="drag-feedback" class="feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>🛒 Puzzle do Supermercado</h3>
+          <p>Escolha o melhor custo-benefício sem passar do orçamento de <strong id="market-budget"></strong>.</p>
+          <div id="market-items" class="market-items"></div>
+          <button id="solve-market" class="btn">Finalizar compras</button>
+          <p id="market-feedback" class="feedback"></p>
+        </article>
+
+        <article class="activity-card">
+          <h3>🔐 Enigma do Juro Composto</h3>
+          <p id="compound-riddle"></p>
+          <input id="compound-answer" type="number" min="0" step="0.01" placeholder="Digite o montante final" />
+          <button id="check-compound" class="btn">Tentar abrir cofre</button>
+          <p id="compound-feedback" class="feedback"></p>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
